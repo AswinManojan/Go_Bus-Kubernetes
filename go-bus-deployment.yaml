@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-bus-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-bus
+  template:
+    metadata:
+      labels:
+        app: go-bus
+    spec:
+      containers:
+      - name: go-bus-container
+        image: aswinmanoj/go-bus-reservation:latest
+        ports:
+        - containerPort: 8080
